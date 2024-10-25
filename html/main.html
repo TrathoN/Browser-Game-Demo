@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../css/mainstyle.css">
+    <title>Monster Slayer</title>
+</head>
+<body>
+    <div id="MessageBox">
+        <span><img src="../jpgs/Logo.png" alt=""></span>
+        <div id="innerBox">
+            
+        </div>
+        <button onclick="self.close()">Close</button>
+        <button onClick="window.location.reload();">Play Again</button>
+        
+    </div>
+    <div id="mainPlatform">
+        <div id="Bars">
+            <div id="HeroBox">
+                <p>Warrior</p>
+                <span id="HeroBar" class="healthBar">
+                    <span id="HeroHealth" class="health">
+                    </span>
+                </span>
+            </div>
+            <span id="vs">
+            </span>
+            <div id="EnemyBox">
+                <p>Monster</p>
+                <span id="EnemyBar" class="healthBar">
+                    <span id="EnemyHealth" class="health">
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div id="FightArea">
+            <span id="Hero">
+
+            </span>
+            <span id="Enemy">
+    
+            </span>
+        </div>
+    </div>
+    <div id="mainConsole">
+        <img class="bgConsole" src="../jpgs/backgroundSword.png" alt="">
+        <img class="bgConsole" src="../jpgs/backgroundShield.png" alt="">
+        <div id="console">
+            <div id="Buttons">
+                <button id="attack" class="heroActions">
+                    ATTACK
+                </button>
+                <button id="heal" class="heroActions">
+                    HEAL
+                </button>
+                <button id="block" class="heroActions">
+                    BLOCK
+                </button>
+            </div>
+            <div id="consoleLog">
+                
+            </div>
+        </div>
+    </div>
+<script src="../js/mainScript.js"></script>
+</body>
+</html>

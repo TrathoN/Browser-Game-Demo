@@ -1,0 +1,629 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: MineCraft;
+}
+
+@font-face {
+    font-family: MineCraft;
+    src: url(../fonts/Minecraft.ttf);
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #151826;
+    height: -webkit-fill-available;
+    position: relative;
+}
+
+p{
+    font-size: large;
+    color: white;
+}
+
+p p1{
+    color: gold;
+}
+
+p p2{
+    color: red;
+}
+
+p p3{
+    color: green;
+}
+
+p p4{ 
+    color: orange;
+}
+
+#MessageBox{
+    display: none;
+    position: absolute;
+    width: 50%;
+    height: 40vh;
+    left: 25%;
+    top: 30vh;
+    border: 3px solid #222b56;
+    background-color: #1d2442;
+    z-index: 2;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+#MessageBox span{
+    float: left;
+    width: 47%;
+    margin-right: 6%;
+}
+
+#MessageBox span img{
+    width: 100%;
+}
+
+#MessageBox div{
+    float: right;
+    width: 47%;
+}
+
+#MessageBox button{
+    margin-top: 30px;
+    padding: 5px 15px;
+    margin-right: 10px;
+}
+
+#mainPlatform{
+    width: 100%;
+    height: 480px;
+    background-image: url("../jpgs/bottomRowSecondImg.png");
+    background-position: top;
+}
+
+#mainConsole{
+    background-color: #151826;
+    width: 100%;
+    height: calc(100% - 480px);
+}
+
+#console{
+    margin-left: 20%;
+    width: 60%;
+    height: 241px;
+    background-color: #151826;
+    text-align: center;
+}
+
+#Buttons{
+    width: 90%;
+    margin-left: 5%;
+    border-bottom: 1px dashed rgba(155, 155, 155, .7);
+}
+
+#block{
+    margin-right: 0px;
+}
+
+#consoleLog{
+    width: 90%;
+    margin: 1% 0% 0% 5%;
+    height: 168px;
+    background-color: black;
+    overflow-y: scroll;
+    padding-top: 5px;
+}
+
+#Bars{
+    text-align: center;
+    display: inline-block;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 40px;
+    height: 75px;
+}
+
+#Bars p{
+    font-size: 24.5px;
+    font-weight: bold;
+    color: darkkhaki;
+    opacity: .8;
+    margin: 0 25px 0 25px;
+}
+
+#vs{
+    display: inline-block;
+    background-image: url(../jpgs/vs.png);
+    color:#151826;
+    margin-top: 2%;
+    height: 75%;
+    width: 5%;
+    background-position: center;
+    background-size: cover;
+}
+
+#HeroBox{
+    float: left;
+    width: 47%;
+    height: 70px;
+}
+
+#HeroBox *{
+    float: left;
+}
+
+#HeroHealth{  /* will change */
+    transition: ease .15s;
+}
+
+#EnemyBox{
+    float: right;
+    width: 47%;
+    height: 70px;
+}
+
+#EnemyBox *{
+    float: right;
+}
+
+#EnemyHealth{  /* will change */
+    transition: ease .15s;
+}
+
+#FightArea{
+    width: 76%;
+    margin-left: 12%;
+    height: 325px;
+    position: relative;
+}
+
+#Hero{
+    display: inline-block;
+    height: 150px;
+    width: 200px;
+    bottom: 0;
+    left: 2%;
+    /*background-color: aqua;*/
+    position: absolute;
+    transition: left 2s cubic-bezier(.08,-0.06,.57,.57);
+}
+
+#Hero.idle{
+    animation-name: idleHero;
+    animation-duration: 0.66666s; /*60fps 0.16666s, 30fps 0.33333s, 24fps 0.41667s, 15fps 0.66666s */
+    animation-iteration-count: infinite;
+    animation-timing-function: step-end;
+    background-image: url(../jpgs/Sprite/Idle.png);
+    background-repeat: no-repeat;
+    background-size: 3000px;
+    background-position-y: -50px;
+    background-position-x: 1.8%;
+}
+
+@keyframes idleHero{
+    0% {background-position-x: 1.8%;}
+    10% {background-position-x: calc(1.8% + (1*10.72%));}
+    20% {background-position-x: calc(1.8% + (2*10.72%));}
+    30% {background-position-x: calc(1.8% + (3*10.72%));}
+    40% {background-position-x: calc(1.8% + (4*10.72%));}
+    50% {background-position-x: calc(1.8% + (5*10.72%));}
+    60% {background-position-x: calc(1.8% + (6*10.72%));}
+    70% {background-position-x: calc(1.8% + (7*10.72%));}
+    80% {background-position-x: calc(1.8% + (8*10.72%));}
+    90% {background-position-x: calc(1.8% + (9*10.72%));}
+} 
+
+#Hero.running-1{ /*running*/
+    left: 76%;
+    animation-name: run1Hero;
+    animation-duration: .53333s; /*60fps 0.13333s, 30fps 0.26667s, 15fps 0.53333s */
+    animation-iteration-count: infinite;
+    animation-timing-function: step-end;
+    width: 250px;
+    z-index: 1;
+    background-image: url(../jpgs/Sprite/Run.png);
+    background-repeat: no-repeat;
+    background-size: 2500px;
+    background-position-y: -55px;
+    background-position-x: 3.32%;
+}
+
+@keyframes run1Hero{ /*running*/
+    0% {background-position-x: 3.32%;}
+    12.5% {background-position-x: calc(3.32% + (1*13.85%));}
+    25% {background-position-x: calc(3.32% + (2*13.85%));}
+    37.5% {background-position-x: calc(3.32% + (3*13.85%));}
+    50% {background-position-x: calc(3.32% + (4*13.85%));}
+    62.5% {background-position-x: calc(3.32% + (5*13.85%));}
+    75% {background-position-x: calc(3.32% + (6*13.85%));}
+    87.5% {background-position-x: calc(3.32% + (7*13.85%));}
+}
+
+#Hero.running-2{
+    left: 2%;
+    animation-name: run2Hero;
+    animation-duration: .53333s; /*60fps 0.13333s, 30fps 0.26667s, 15fps 0.53333s */
+    animation-iteration-count: infinite;
+    animation-timing-function: step-end;
+    animation-direction: reverse;
+    width: 250px;
+    z-index: 1;
+    background-image: url(../jpgs/Sprite/Run.png);
+    transform: scaleX(-1);
+    background-repeat: no-repeat;
+    background-size: 2500px;
+    background-position-y: -55px;
+    background-position-x: 0%;
+}
+
+@keyframes run2Hero {
+    0% {background-position-x: 0%;}
+    12.5% {background-position-x: calc(0% + (1*13.85%));}
+    25% {background-position-x: calc(0% + (2*13.85%));}
+    37.5% {background-position-x: calc(0% + (3*13.85%));}
+    50% {background-position-x: calc(0% + (4*13.85%));}
+    62.5% {background-position-x: calc(0% + (5*13.85%));}
+    75% {background-position-x: calc(0% + (6*13.85%));}
+    87.5% {background-position-x: calc(0% + (7*13.85%));}
+}
+
+#Hero.attacking-3{
+    left: 76%;
+    animation-name: attack3Hero;
+    animation-duration: .6s; /*60fps 0.15s, 30fps 0.3s, 15fps 0.6s */
+    animation-iteration-count: 1;
+    animation-timing-function: step-end;
+    animation-delay: -0.075s;
+    width: 250px;
+    z-index: 1;
+    background-image: url(../jpgs/Sprite/Attack3.png);
+    background-repeat: no-repeat;
+    background-size: 2700px;
+    background-position-y: -49.5px;
+    background-position-x: calc(1.76% + (8*12.2611%));
+}
+
+@keyframes attack3Hero {
+    0% {background-position-x: calc(1.76% + (8*12.2611%));}
+    11.1111% {background-position-x: 1.76%;}
+    22.2222% {background-position-x: calc(1.76% + (1*12.2611%));}
+    33.3333% {background-position-x: calc(1.76% + (2*12.2611%));}
+    44.4444% {background-position-x: calc(1.76% + (3*12.2611%));}
+    55.5555% {background-position-x: calc(1.76% + (4*12.2611%));}
+    66.6666% {background-position-x: calc(1.76% + (5*12.2611%));}
+    77.7777% {background-position-x: calc(1.76% + (6*12.2611%));}
+    88.8888% {background-position-x: calc(1.76% + (7*12.2611%));}
+
+}
+
+#Hero.heal{
+    animation-name: healHero;
+    animation-duration: 0.5s;
+    animation-iteration-count: 3;
+    animation-timing-function: step-end;
+    animation-direction: alternate-reverse;
+    background-image: url(../jpgs/Sprite/Attack1.png);
+    background-repeat: no-repeat;
+    background-size: 2000px;
+    background-position-y: -40px;
+    background-position-x: 2%;
+}
+
+@keyframes healHero {
+    0%{background-position-x: 2%;}
+    33.3333%{background-position-x: calc(2% + (1*15.2857%));}
+    66.6666%{background-position-x: calc(2% + (2*15.2857%));}
+}
+
+#Hero.block{
+    animation-name: blockHero;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-timing-function: step-end;
+    background-image: url(../jpgs/Sprite/Attack2.png);
+    background-repeat: no-repeat;
+    background-size: 1800px;
+    animation-delay: -.16s;
+    background-position-y: -50px;
+    background-position-x: calc(5% + (2*17.6666%));
+}
+
+@keyframes blockHero {
+    0% {background-position-x: calc(5% + (2*17.6666%));}
+    33.3333% {background-position-x: 5%;}
+    66.6666% {background-position-x: calc(5% + (1*17.6666%));}
+}
+
+#Hero.block-2{
+    animation-name: block2Hero;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-timing-function: step-end;
+    animation-direction: reverse;
+    background-image: url(../jpgs/Sprite/Attack2.png);
+    background-repeat: no-repeat;
+    background-size: 1800px;
+    animation-delay: -.16s;
+    background-position-y: -50px;
+    background-position-x: 5%;
+}
+@keyframes block2Hero {
+    0% {background-position-x: 5%;}
+    33.3333% {background-position-x: calc(5% + (1*17.6666%));}
+    66.6666% {background-position-x: calc(5% + (2*17.6666%));}
+}
+
+#Hero.hit{
+    animation-name: hitHero;
+    animation-duration: .6s; /*60fps 0.05s, 30fps 0.1s, 15fps 0.2s */
+    animation-timing-function: step-end;
+    animation-iteration-count: 1;
+    animation-delay: -0.2s;
+    background-image: url(../jpgs/Sprite/Take\ Hit.png);
+    background-repeat: no-repeat;
+    background-size: 900px;
+    background-position-y: -55px;
+    background-position-x: 92.15%;
+}
+
+@keyframes hitHero {
+    0%{background-position-x: 92.15%;}
+    33.3333% {background-position-x:  5.4%;}
+    66.6666% {background-position-x:  48.6%;}
+}
+
+#Hero.death{
+    animation-name: deathHero;
+    animation-duration: 0.91667s; /*60fps 0.18333s, 30fps 0.36667s, 15fps 0.73333s, 12fps 0.91667s */
+    animation-timing-function: step-end;
+    animation-iteration-count: 1;
+    animation-delay: -0.0833334s;
+    background-image: url(../jpgs/Sprite/Death.png);
+    background-repeat: no-repeat;
+    background-size: 3250px;
+    background-position-y: -50px;
+    background-position-x: calc(1.4% + (10*9.680909%));
+}
+
+@keyframes deathHero {
+    /* 9.090909 */
+    0% {background-position-x: calc(1.4% + (10*9.680909%));}
+    9.090909% {background-position-x: 1.4%;}
+    18.181818% {background-position-x: calc(1.4% + (1*9.680909%));}
+    27.272727% {background-position-x: calc(1.4% + (2*9.680909%));}
+    36.363636% {background-position-x: calc(1.4% + (3*9.680909%));}
+    45.454545% {background-position-x: calc(1.4% + (4*9.680909%));}
+    54.545454% {background-position-x: calc(1.4% + (5*9.680909%));}
+    63.636363% {background-position-x: calc(1.4% + (6*9.680909%));}
+    72.727272% {background-position-x: calc(1.4% + (7*9.680909%));}
+    81.818181% {background-position-x: calc(1.4% + (8*9.680909%));}
+    90.909090% {background-position-x: calc(1.4% + (9*9.680909%));}
+}
+
+#Enemy{
+    display: inline-block;
+    height: 200px;
+    width: 300px;
+    bottom: 0;
+    right: 2%;
+    position: absolute;
+    transition: right 2s cubic-bezier(.08,-0.06,.57,.57);
+}
+
+#Enemy.idle{
+    animation-name: idleEnemy;
+    animation-duration: .53333s; /*60fps 0.13333s, 30fps 0.26667s, 15fps 0.53333s */
+    animation-iteration-count: infinite;
+    animation-timing-function: step-end;
+    background-image: url(../jpgs/IndividualSprite/Idle/Bringer-of-Death_Idle_1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 360px;
+    background-position-y: -40px;
+}
+
+@keyframes idleEnemy {
+    0% {background-image: url(../jpgs/IndividualSprite/Idle/Bringer-of-Death_Idle_1.png);}
+    12.5% {background-image: url(../jpgs/IndividualSprite/Idle/Bringer-of-Death_Idle_2.png);}
+    25% {background-image: url(../jpgs/IndividualSprite/Idle/Bringer-of-Death_Idle_3.png);}
+    37.5% {background-image: url(../jpgs/IndividualSprite/Idle/Bringer-of-Death_Idle_4.png);}
+    50% {background-image: url(../jpgs/IndividualSprite/Idle/Bringer-of-Death_Idle_5.png);}
+    62.5% {background-image: url(../jpgs/IndividualSprite/Idle/Bringer-of-Death_Idle_6.png);}
+    75% {background-image: url(../jpgs/IndividualSprite/Idle/Bringer-of-Death_Idle_7.png);}
+    87.5% {background-image: url(../jpgs/IndividualSprite/Idle/Bringer-of-Death_Idle_8.png);}
+}
+
+#Enemy.walk-1{
+    animation-name: walkEnemy1;
+    animation-duration: .6667s; /*60fps 0.13333s, 30fps 0.26667s, 15fps 0.53333s 12fps 0.6667s*/
+    animation-iteration-count: infinite;
+    animation-timing-function: step-end;
+    right: 72%;
+    background-image: url(../jpgs/IndividualSprite/Walk/Bringer-of-Death_Walk_1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 360px;
+    background-position-y: -40px;
+}
+
+@keyframes walkEnemy1 {
+    0% {background-image: url(../jpgs/IndividualSprite/Walk/Bringer-of-Death_Walk_1.png);}
+    12.5% {background-image: url(../jpgs/IndividualSprite/Walk/Bringer-of-Death_Walk_2.png);}
+    25% {background-image: url(../jpgs/IndividualSprite/Walk/Bringer-of-Death_Walk_3.png);}
+    37.5% {background-image: url(../jpgs/IndividualSprite/Walk/Bringer-of-Death_Walk_4.png);}
+    50% {background-image: url(../jpgs/IndividualSprite/Walk/Bringer-of-Death_Walk_5.png);}
+    62.5% {background-image: url(../jpgs/IndividualSprite/Walk/Bringer-of-Death_Walk_6.png);}
+    75% {background-image: url(../jpgs/IndividualSprite/Walk/Bringer-of-Death_Walk_7.png);}
+    87.5% {background-image: url(../jpgs/IndividualSprite/Walk/Bringer-of-Death_Walk_8.png);}
+}
+
+#Enemy.walk-2{
+    animation-name: walkEnemy2;
+    animation-duration: .6667s; /*60fps 0.13333s, 30fps 0.26667s, 15fps 0.53333s 12fps 0.6667s*/
+    animation-iteration-count: infinite;
+    animation-timing-function: step-end;
+    animation-direction: reverse;
+    transform: scaleX(-1);
+    background-image: url(../jpgs/IndividualSprite/Walk/Bringer-of-Death_Walk_1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 360px;
+    background-position-y: -40px;
+    background-position-x: -210px;
+}
+
+@keyframes walkEnemy2 {
+    0% {background-image: url(../jpgs/IndividualSprite/Walk/Bringer-of-Death_Walk_1.png);}
+    12.5% {background-image: url(../jpgs/IndividualSprite/Walk/Bringer-of-Death_Walk_2.png);}
+    25% {background-image: url(../jpgs/IndividualSprite/Walk/Bringer-of-Death_Walk_3.png);}
+    37.5% {background-image: url(../jpgs/IndividualSprite/Walk/Bringer-of-Death_Walk_4.png);}
+    50% {background-image: url(../jpgs/IndividualSprite/Walk/Bringer-of-Death_Walk_5.png);}
+    62.5% {background-image: url(../jpgs/IndividualSprite/Walk/Bringer-of-Death_Walk_6.png);}
+    75% {background-image: url(../jpgs/IndividualSprite/Walk/Bringer-of-Death_Walk_7.png);}
+    87.5% {background-image: url(../jpgs/IndividualSprite/Walk/Bringer-of-Death_Walk_8.png);}
+}
+
+#Enemy.attack{
+    animation-name: attackEnemy;
+    animation-duration: 0.66666s; /*60fps 0.16666s, 30fps 0.33333s, 24fps 0.41667s, 15fps 0.66666s */
+    animation-iteration-count: 1;
+    animation-timing-function: step-end;
+    animation-delay: -0.06666s;
+    right: 72%;
+    background-image: url(../jpgs/IndividualSprite/Attack/Bringer-of-Death_Attack_1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 220px;
+    background-size: 360px;
+    background-position-y: -20px;
+}
+
+@keyframes attackEnemy {
+    0%{background-image: url(../jpgs/IndividualSprite/Attack/Bringer-of-Death_Attack_10.png);}
+    10%{background-image: url(../jpgs/IndividualSprite/Attack/Bringer-of-Death_Attack_1.png);}
+    20%{background-image: url(../jpgs/IndividualSprite/Attack/Bringer-of-Death_Attack_2.png);}
+    30%{background-image: url(../jpgs/IndividualSprite/Attack/Bringer-of-Death_Attack_3.png);}
+    40%{background-image: url(../jpgs/IndividualSprite/Attack/Bringer-of-Death_Attack_4.png);}
+    50%{background-image: url(../jpgs/IndividualSprite/Attack/Bringer-of-Death_Attack_5.png);}
+    60%{background-image: url(../jpgs/IndividualSprite/Attack/Bringer-of-Death_Attack_6.png);}
+    70%{background-image: url(../jpgs/IndividualSprite/Attack/Bringer-of-Death_Attack_7.png);}
+    80%{background-image: url(../jpgs/IndividualSprite/Attack/Bringer-of-Death_Attack_8.png);}
+    90%{background-image: url(../jpgs/IndividualSprite/Attack/Bringer-of-Death_Attack_10.png);}
+}
+
+#Enemy.hit{
+    animation-name: hitEnemy;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-timing-function: step-end;
+    animation-delay: -0.16666s;
+    background-image: url(../jpgs/IndividualSprite/Hurt/Bringer-of-Death_Hurt_3.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 360px;
+    background-position-y: -40px;
+}
+
+@keyframes hitEnemy {
+    0%{background-image: url(../jpgs/IndividualSprite/Hurt/Bringer-of-Death_Hurt_3.png);}
+    33.3333%{background-image: url(../jpgs/IndividualSprite/Hurt/Bringer-of-Death_Hurt_1.png);}
+    66.6666%{background-image: url(../jpgs/IndividualSprite/Hurt/Bringer-of-Death_Hurt_2.png);}
+    
+}
+
+#Enemy.death{
+    animation-name: deathEnemy;
+    animation-duration: 0.66666s; /*60fps 0.16666s, 30fps 0.33333s, 24fps 0.41667s, 15fps 0.66666s */
+    animation-iteration-count: 1;
+    animation-delay: -0.06666s;
+    animation-timing-function: step-end;
+    background-image: url(../jpgs/IndividualSprite/Death/Bringer-of-Death_Death_10.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 360px;
+    background-position-y: -40px;
+}
+
+@keyframes deathEnemy {
+    0%{background-image: url(../jpgs/IndividualSprite/Death/Bringer-of-Death_Death_10.png);}
+    10%{background-image: url(../jpgs/IndividualSprite/Death/Bringer-of-Death_Death_1.png);}
+    20%{background-image: url(../jpgs/IndividualSprite/Death/Bringer-of-Death_Death_2.png);}
+    30%{background-image: url(../jpgs/IndividualSprite/Death/Bringer-of-Death_Death_3.png);}
+    40%{background-image: url(../jpgs/IndividualSprite/Death/Bringer-of-Death_Death_4.png);}
+    50%{background-image: url(../jpgs/IndividualSprite/Death/Bringer-of-Death_Death_5.png);}
+    60%{background-image: url(../jpgs/IndividualSprite/Death/Bringer-of-Death_Death_6.png);}
+    70%{background-image: url(../jpgs/IndividualSprite/Death/Bringer-of-Death_Death_7.png);}
+    80%{background-image: url(../jpgs/IndividualSprite/Death/Bringer-of-Death_Death_8.png);}
+    90%{background-image: url(../jpgs/IndividualSprite/Death/Bringer-of-Death_Death_9.png);}
+}
+
+#Enemy.cast{
+    animation-name: castEnemy;
+    animation-duration: .66666s; /*60fps 0.16666s, 30fps 0.33333s, 24fps 0.41667s, 15fps 0.66666s */
+    animation-iteration-count: 1;
+    animation-delay: -0.06666s;
+    animation-timing-function: step-end;
+    background-image: url(../jpgs/IndividualSprite/Idle/Bringer-of-Death_Idle_1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 250px;
+    background-size: 360px;
+    background-position-y: 10px;
+}
+
+@keyframes castEnemy {
+    0%{background-image: url(../jpgs/IndividualSprite/Idle/Bringer-of-Death_Idle_1.png);}
+    10%{background-image: url(../jpgs/IndividualSprite/Cast/Bringer-of-Death_Cast_1.png);}
+    20%{background-image: url(../jpgs/IndividualSprite/Cast/Bringer-of-Death_Cast_2.png);}
+    30%{background-image: url(../jpgs/IndividualSprite/Cast/Bringer-of-Death_Cast_3.png);}
+    40%{background-image: url(../jpgs/IndividualSprite/Cast/Bringer-of-Death_Cast_4.png);}
+    50%{background-image: url(../jpgs/IndividualSprite/Cast/Bringer-of-Death_Cast_5.png);}
+    60%{background-image: url(../jpgs/IndividualSprite/Cast/Bringer-of-Death_Cast_6.png);}
+    70%{background-image: url(../jpgs/IndividualSprite/Cast/Bringer-of-Death_Cast_7.png);}
+    80%{background-image: url(../jpgs/IndividualSprite/Cast/Bringer-of-Death_Cast_8.png);}
+    90%{background-image: url(../jpgs/IndividualSprite/Cast/Bringer-of-Death_Cast_9.png);}
+}
+
+.healthBar{
+    display: block;
+    background-color: rgba(255,255,255, .25);
+    width: 93%;
+    height: 40px;
+    border: 5px solid black;
+}
+
+.health{  
+    height: 40px;
+    width: 100%;
+    background-color: rgb(200, 0, 0);
+}
+
+.bgConsole{
+    width: 18%;
+    height: 220px;
+    padding: 0px 1% 1% 1%;
+    opacity: .25;
+}
+
+.bgConsole:first-child{
+    float: left;
+}
+.bgConsole:nth-child(2){
+    float: right;
+}
+
+.heroActions{
+    width: 27.5%;
+    height: 15%;
+    margin: 10px 15px 10px 0;
+    background-color: darkgray;
+    border-radius: 3px;
+
+}
+
+@media only screen and (min-width: 1300px) {
+    #vs{
+        margin-top: 1.5%;
+        height: 60px;
+        width: 3.8%;
+    }
+}
